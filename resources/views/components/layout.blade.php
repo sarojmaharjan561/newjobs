@@ -29,16 +29,20 @@
             </div>
 
             @auth
-            <div>
-                <a href="/jobs" class="mr-6">Post a Job</a>
-                <a href="/register">Logout</a>
+            <div class="space-x-6 font-bold flex">
+                <a href="/jobs">Post a Job</a>
+                <form method="POST" action="/logout">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit">Log Out</button>
+                </form>
             </div>
             @endauth
 
             @guest
-            <div>
-                <a href="/register" class="mr-6">Sign Up</a>
-                <a href="/register">Login</a>
+            <div class="space-x-6 font-bold flex">
+                <a href="/register">Sign Up</a>
+                <a href="/login">Login</a>
             </div>
             @endguest
         </nav>
